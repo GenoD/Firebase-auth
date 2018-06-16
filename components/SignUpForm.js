@@ -10,9 +10,7 @@ class SignUpForm extends Component {
 
   handleSubmit = async () => {
     try {
-      console.log('phone', this.state.phone);
       let response = await axios.post(`${ROOT_URL}/createUser`, { phone: this.state.phone });
-      console.log('response', response);
       await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone: this.state.phone });
     } catch (err) {
       console.log(err);
